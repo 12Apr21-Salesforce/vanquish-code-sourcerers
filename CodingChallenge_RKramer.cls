@@ -127,7 +127,23 @@ public class CodingChallenge_RKramer {
     */
     
     public static Boolean bracketsAreBalanced( String s ) {
-		return null;
+        // check the string to see what is passed in
+        // if null is passed in, it is not balanced
+        // if the string is not even, it is not balanced
+        if(null == s || ((s.length() % 2) != 0)){
+            return false;
+        } else {
+            List<Integer> sInts = new List<Integer>;
+            for (Integer int : sInts) { // interate through the array
+                // if there are input characters that are not brackets, it is not balanced
+                if(!(int == '{' || int == '[' || int == '(' || int == '}' || int == ']' || int == ')')) {
+                    return false;
+                }
+            }
+        }
+
+
+		return true;
     }  
     
  	/*

@@ -62,22 +62,31 @@ public class P0BNatalie {
         return nList;
     }
 /*
+    
     public static Boolean bracketsAreBalanced( String s ) {
-        List<String> overview = s.deleteWhitespace().split('');
-        Boolean balance;
+        String word = s.deleteWhiteSpace();
+        List<String> overview = word.split('');
+        // List<String> reversed = word.reverse().split('');
         Integer size = overview.size();
-        List<String> left = new List<String>{'(','[','{'};
-        List<String> right = new List<String>{')',']','}'};
+        Boolean balance = false;
+        List<String> leftList = new List<String>{'(','[','{'};
+        List<String> rightList = new List<String>{')',']','}'}; // should just create emuns? except enum only works with alphanumeric
 
-        for(Integer i=0;i<=size/2;i++){
-            if(left.contains(overview[i])==true){
-                if(){
-                   
-                }
-                
-            }
-        }
+        do{
+            //want to iterate thru overview and add character like '.' to overview where it changes from leftList to rightList
+            size--;
+        }while(0<size);
+        //resplit word at '.'
+        //check each list item for palindrome?
+
+
+        return balance;
     }//normalizeSpace() and split()
+
+
+*/
+/*
+
 
     public static void updateAccountSize( ) {
 
@@ -158,16 +167,17 @@ public class P0BNatalie {
 /*
     public static Integer palindromicity(String str) {
         Integer result = 0;
-        
-        List<String> theWord = str.split('');
-        // String backwards = str.reverse();
-        for(Integer i=0; i<str.length()/2;i++){
-            if(theWord[i] != theWord[str.length()-1-i]){
-                return result;
-            }
+
+        word = str.deleteWhiteSpace();
+        backward = word.reverse();
+        List<String> wordList = word.split('');
+        for(){
+            if()//check into the brackets challenge and use the same
         }
+        
+
         return result;
-    }//
+    }//for palindrome, .reverse() .deleteWhiteSpace() and compare
 */
 
 

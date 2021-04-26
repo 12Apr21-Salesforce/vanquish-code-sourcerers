@@ -64,48 +64,58 @@
     Integer wiggle = 0;
     List<integer> piv_list = new List<integer>();
     List<integer> lone = new List<integer>();
-
-      wiggle = intList.get(0);
+    
+    
   
-      if(wiggle < 0){
+    wiggle = intList.get(0);
+    
+     if(wiggle < 0){
 
-          piv_loc = (intList.size()/2) + 1;
-          intList.set(0, intList.get(0) * -1);
+        piv_loc = (intList.size()/2) + 1;
+        intList.set(0, intList.get(0) * -1);
 
       }else{
-
         piv_loc = (intList.size()/2);
-
-
       }
-    piv_val = intList.get(piv_loc);
-    system.debug('piv val = ' + piv_val);
+
+      lone = intlist.clone();
+      piv_val = intList.get(piv_loc);
       piv_list.add(piv_val);
-  intList.remove(piv_loc);
+      intList.remove(piv_loc);
+    
+  
+      for(Integer x : intList){
 
-        for(Integer x : intList){
+          if(x <= piv_val){
 
-            if(x <= piv_val){
+              piv_list.add(0, x);
 
-                piv_list.add(0, x);
+          }else if(x > piv_val){
 
-            }else if(x > piv_val){
+              piv_list.add(x);
 
-                piv_list.add(x);
+          }
+      }
 
-            }
-        }
-
-        if(piv_list.equals(lone)){
-            
-            
-            return piv_list;
+      lone.sort();
+    if(piv_list.equals(lone)){
+    
           
-        }else{
-          piv_list.set(0, intList.get(0) * -1);
-          return sortList(piv_list);
-        }
+          return piv_list;
         
+      }else{
+          if(wiggle > 0){
+            piv_list.set(0, piv_list.get(0) * -1);
+        }
+        return sortList(piv_list);
+          /*
+         return piv_list;
+      
+        //*/
+      }
+      
+      
+
 
     }
 

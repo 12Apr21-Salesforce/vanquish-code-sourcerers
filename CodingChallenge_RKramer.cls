@@ -21,10 +21,10 @@ public class CodingChallenge_RKramer {
     
      public static Integer nFibonacci( Integer n ){
 		
-          if (n <= 1){
+          if (n <= 1){ // If n is less than or equal to 1, it will simply return as such
              return n;
         } 
-        return nFibonacci(n -1) + nFibonacci(n - 2); 
+        return nFibonacci(n -1) + nFibonacci(n - 2); // If n is larger than 1, use recursion to call Fibonacci and return the sum of the 2 previous values.
         
     }
     // system.debug(nFibonacci(10));
@@ -79,7 +79,7 @@ public class CodingChallenge_RKramer {
         if (n == 0){
             return 1;
         } 
-        return n * nFactorial(n - 1);
+        return n * nFactorial(n - 1); // Use recursion to run the sum over and over until reach 0 (5! = 5*4*3*2*1 = 120)
     }
     
     /*

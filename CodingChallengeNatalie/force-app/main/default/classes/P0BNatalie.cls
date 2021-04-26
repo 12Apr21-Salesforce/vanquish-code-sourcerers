@@ -61,7 +61,6 @@ public class P0BNatalie {
         }
         return nList;
     }
-    
 /*
     public static Boolean bracketsAreBalanced( String s ) {
         List<String> overview = s.deleteWhitespace().split('');

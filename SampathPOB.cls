@@ -12,7 +12,7 @@ public class SampathPOB{
         if (n==0) {
             System.debug('Fibonacci series for '+n+' is '+n);
         } else if (n<0){
-            System.debug('entered positive no '+n+'. Enter a positive no.');
+            System.debug(n+'is a negative no.');
         }else {
     //    	 System.debug(fibp+' '+ fib);
           //   System.debug(fib+' ');
@@ -75,7 +75,7 @@ public class SampathPOB{
     public static Integer nFactorial( Integer n) {
         integer fact = 1;
         If (n==0) {
-            System.debug('Factorial of '+n+' is : '+n);
+            System.debug('Factorial of '+n+' is : '+fact);
             return 1;
         } else if (n<1) {
             System.debug('Invalid no for a factorial.');
@@ -104,18 +104,17 @@ public class SampathPOB{
         }
 		System.debug('Initial list of array is '+nList);
       
-      //for loop for n number of rotations and stored first digit in a variable "first"
+      //for loop for n number of rotations and storing the 1st digit in a variable "last"
         for(integer i =1; i<=n; i++){
-        	Integer first = nList[0];   
+        	Integer last = nList[0];   
 			
 			//moving every digit one-left and the first item added last to the list.
 			for(integer j=0; j<len-1; j++) {
         		nList[j]=nList[j+1];
             }
-            nList[len-1]=first;
-            //System.debug('After '+i+' rotation '+li);
+            nList[len-1]=last;
         }  
-         // System.debug('After rotation '+nList);
+        System.debug('After '+n+' rotations left, the list is: '+nList);
         return nList;
     }
  
@@ -254,56 +253,74 @@ public class SampathPOB{
      * that sum to 10 (7 and 3) and 3  question marks between those numbers
 */
     public static Boolean questionMarks(String str) {
-   		
+
         Boolean questionMarks=false;
         Integer len = str.length();
         String qm = '?'; // to check the count of ?
-        Integer qcount = 0;
-        List<Integer> intIndexs = new List<Integer>();  // to check the index value of intergers
+        Integer qCount = 0;
+        Integer qbCount = 0;
+        Integer nCount = 0;
+        List<Integer> intIndexes = new List<Integer>();  // to check the index value of intergers
         List<Integer> intVals = new List<Integer>();  // to check the value of intergers
-        Integer intVal, Index;
+        Integer intCount=0;
         
         // splitting on empty gives you an array of the string's "chars"
-		String[] chars= str.split('');
+        List<String> chars= str.split('');
         
         Boolean q = str.isAlpha(); //to check whether the string is alphabetic only
-       	if((len<5)||(q==true)){ // to check the len of string is 5 or above
-        	System.debug('This string \''+str+'\' is not considered.');
+        if((len<5)||(q==true)){ // to check the len of string is 5 or above
+            System.debug('This string \''+str+'\' is not considered.');
             questionMarks=false;
+            System.debug('questionMarks is :'+questionMarks);
         
         } else {
-        	// counting the no of ?
-            	for(integer i=0; i<len; i++){
-        	        if (chars[i]==qm){
-            	    	qcount++;
-                	}
-        		}
-			System.debug('count of questionmarks '+qCount);
-        	if(qCount>=3){
-        		for(integer i=0; i<len; i++){    //to get the integer values and it's indexes.
-            		if((chars[i].isNumeric())){
-                		intVal = Integer.valueOf(chars[i]);
-                    	index = str.indexOf(chars[i]);
-                    	intVals.add(intVal);
-                    	intIndexs.add(index);
-                    	System.debug('Index of '+intVal+' is '+index);  
-                	}
-            	}  
-            	System.debug(intIndexs+' '+intVals);
-            	Integer diff = intIndexs[1]-intIndexs[0];
-            	if(diff>3){
-            		for(integer i=intIndexs[0]+1; i<intIndexs[1]-1; i++){
-                		if (chars[i]==qm){
-                			qcount++;
-                		}
-                    	Integer value = intVals[0]+intVals[1];
-         			}
-				}
-        	}
+        // counting the no of ?
+            for(integer i=0; i<len; i++){
+                if (chars[i]==qm){
+                    qcount++;
+                }
+                if (chars[i].isNumeric()){
+                    intVals.add(Integer.valueOf(chars[i])); // storing the integer values
+                    intIndexes.add(chars.indexOf(chars[i])); // storing the indexes of integer values
+                    //System.debug('index values of '+chars[i]+' '+chars.indexOf(chars[i]));
+                    nCount++;  // to check the no of numeric values
+                }
+            }
+            System.debug('count of questionmarks '+qCount);
+            System.debug('count of numeric values '+nCount);
+            System.debug('Integer are '+intVals);
+            System.debug('index values of integers '+intIndexes);
+            if((qCount>=3) && (nCount>1)){
+                for(integer i=0; i<(intIndexes.size()-1); i++){
+                    qbCount=0;
+                    if (intVals[i]+intVals[i+1]==10){
+                        System.debug('Sum of 2 digits is '+(intVals[i]+intVals[i+1]));
+                        for(integer j=intIndexes[i]; j<intIndexes[i+1]; j++){
+                                //System.debug('index value of 2nd integer is '+intIndexes[i]);
+                                //	System.debug('for loop in Indexes '+i+' '+j);
+                            //System.debug('question mark with i '+chars[j]+1]);
+                            //System.debug('question mark with j '+chars[intIndexes[j]]);
+                            if (chars[j]==qm){
+                                // System.debug('question mark '+chars[j]+1);
+                                qbCount++;
+                            }
+                        }System.debug('No of Qs in iteration '+(i+1)+' between nos is :'+qbCount);
+                        
+                        if (qbCount>=3){
+                                questionMarks = true;
+                            break;
+                        } else questionMarks = false;
+                            
+                        //qbCount=0;
+                        
+                    } else questionMarks = false;
+                }
+            } else questionMarks = false;
         }
+        System.debug('questionMarks is :'+questionMarks);
         return questionMarks;
     }
-   
+
  /*
  * 10. multipleCounter returns the number of multiples of the Integer n that exist in the inclusive range 
  * [firstNum, secondNum]. You can assume that firstNum < secondNum in all cases.

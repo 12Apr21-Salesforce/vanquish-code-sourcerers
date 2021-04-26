@@ -161,7 +161,7 @@
      *
      *      str = "iotoihannahracecar" => palindromicity returns 3 because str can be broken into 3 palindromes ("iotoi", "hannah", and "racecar")
      *      str = "abcbabcbabab" => 2. pretty sure it's greedy
-     *      str = "abcbabcbababa" => 3. both ways: "abcbabcba" "bab" "a" or "ababa" "bcbabcb" "a"
+     *      str = "abcbabcbababa" => 3. both ways: "abcbabcba" "bab" "a" or "ababa" "bcbabab" "a"
      *      str = "ababbbabbababa" => 4. NOT GREEDY. 'a' 'babbbab' 'b' 'ababa' is the answer. 
      *                                    'aba' 'bbb' 'abba' 'b' 'aba' is the greedy answer.
     */

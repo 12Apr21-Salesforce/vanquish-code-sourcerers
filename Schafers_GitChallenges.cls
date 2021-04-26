@@ -11,7 +11,7 @@
 /////////////////////////////////////////////////////////////////
 //Write the following methods in a class called P0B. 
 //Note: The method signatures are given.
-
+// test edit
 
 public class Schafers_GitChallenges{
 
@@ -35,6 +35,7 @@ public class Schafers_GitChallenges{
 
     system.debug(nFibonacci(5));
     
+
     /*
      * 2. Sort a list of integers.
      * Test Cases:
@@ -43,18 +44,15 @@ public class Schafers_GitChallenges{
      *
      * Don't use the sort() method... that would be lame.
     */
-
-    List<Integer> intList = new List<Integer>{5,3,2,6,2,4,1};
-
       
-//List<Integer> intList = new List<Integer>{5,3,2,6,2,4,1};
+    //List<Integer> intList = new List<Integer>{5,3,2,6,2,4,1};
 
-public class SortingList {
-    
+
+        
     public static List<Integer> sortList( List<Integer> intList ) {
         
-        Integer l = intList.size();
-        Integer t = 0;
+        Integer l = intList.size(); // Length of list
+        Integer t = 0; // Temp Value
 
         for ( Integer i = 0 ; i < l ; i++) {
             
@@ -62,14 +60,14 @@ public class SortingList {
                 
                 if (intList[i] > intList[j]) {
                     t = intList[i];
-                    intList[i] = intList[j]  ;
+                    intList[i] = intList[j];
                     intList[j]  = t;
                 }
 
             }
             for ( Integer k : intList){
                 System.debug(''+ k);
-     
+    
             }
         
         //system.debug(intList);
@@ -77,8 +75,8 @@ public class SortingList {
         }
         return intList;
     }
-}
-System.debug(SortingList.sortList(new List<Integer>{2,4,5,6,3,1}));
+
+    System.debug(Schafers_GitChallenges.sortList(new List<Integer>{2,4,5,6,3,1}));
 
 
 
@@ -102,6 +100,7 @@ System.debug(SortingList.sortList(new List<Integer>{2,4,5,6,3,1}));
     System.System.debug(nFactorial(5))
 
 
+
     /*
      * 4. Rotate left
      * Given a list, list, and an integer, n, rotate the values in list left n times and return list
@@ -110,11 +109,29 @@ System.debug(SortingList.sortList(new List<Integer>{2,4,5,6,3,1}));
      * Input: [1,2,3,4,5], 6    Output: [2,3,4,5,1]
      * Input: [1,2,3,4,5], 3    Output: [4,5,1,2,3]
     */
-    public static List<Integer> rotateLeftNTimes( List<Integer> nList, Integer n) {
-        return NULL;
+
+    List<Integer> nList = new List<Integer>{1,2,3,4,5};
+    
+    public static List<Integer> rotateListLeft( List<Integer> nList, Integer n) {
+
+        Integer t = 0; // Temp Value 
+
+        for ( Integer i = 0 ; i < n ; i++) { //n = number of movements left
+                
+            for ( Integer j = 0; j <= nList.size(); j++) {
+                
+                t = nList[i];
+                nList[i] = nList[j];
+                nList[j]  = t;
+            }
+                
+
+        //System.debug(nList)
+
+        return rotateListLeft;
     }
 
-
+    System.debug(rotateListLeft(nlist, 1) // 1 movement left
 
 
 
@@ -142,6 +159,9 @@ System.debug(SortingList.sortList(new List<Integer>{2,4,5,6,3,1}));
      * Return false if not balanced
     */
     public static Boolean bracketsAreBalanced( String s ) {
+
+
+        
         return NULL;
     }
 

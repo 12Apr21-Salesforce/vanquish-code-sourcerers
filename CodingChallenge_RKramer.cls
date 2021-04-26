@@ -130,21 +130,21 @@ public class CodingChallenge_RKramer {
         // check the string to see what is passed in
         // if null is passed in, it is not balanced
         // if the string is not even, it is not balanced
-        if(null == s || ((s.length() % 2) != 0)){
+        if(null == s || (math.mod(s.length(), 2) == 0)) {
             return false;
         } else {
-            List<Integer> sInts = new List<Integer>;
-            for (Integer int : sInts) { // interate through the array
+            List<String> sInts = new List<String>(); 
+            for (String l : sInts) { // interate through the array
                 // if there are input characters that are not brackets, it is not balanced
-                if(!(int == '{' || int == '[' || int == '(' || int == '}' || int == ']' || int == ')')) {
+                if(!(l == '{' || l == '[' || l == '(' || l == '}' || l == ']' || l == ')')) {
                     return false;
                 }
             }
         }
-
+        
 
 		return true;
-    }  
+    }   
     
  	/*
      * 6. Create a method that retrieves a list of all accounts and updates those accounts.

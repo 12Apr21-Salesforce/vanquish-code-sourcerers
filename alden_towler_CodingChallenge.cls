@@ -20,7 +20,7 @@
   
   public class alden_towler_CodingChallenge{
   
- 
+    
 
     public static Integer nFibonacci( Integer n ){
               /*
@@ -59,18 +59,53 @@
      *
      * Don't use the sort() method... that would be lame.
     */
-      
-        for(Integer x : intlist){
+    Integer piv_val = 0;
+    Integer piv_loc = 0;
+    Integer wiggle = 0;
+    List<integer> piv_list = new List<integer>();
+    List<integer> lone = new List<integer>();
 
-            //swap x with any next
+      wiggle = intList.get(0);
+  
+      if(wiggle < 0){
+
+          piv_loc = (intList.size()/2) + 1;
+          intList.set(0, intList.get(0) * -1);
+
+      }else{
+
+        piv_loc = (intList.size()/2);
 
 
+      }
+    piv_val = intList.get(piv_loc);
+    system.debug('piv val = ' + piv_val);
+      piv_list.add(piv_val);
+  intList.remove(piv_loc);
 
+        for(Integer x : intList){
+
+            if(x <= piv_val){
+
+                piv_list.add(0, x);
+
+            }else if(x > piv_val){
+
+                piv_list.add(x);
+
+            }
         }
 
-
-
-
+        if(piv_list.equals(lone)){
+            
+            
+            return piv_list;
+          
+        }else{
+          piv_list.set(0, intList.get(0) * -1);
+          return sortList(piv_list);
+        }
+        
 
     }
 

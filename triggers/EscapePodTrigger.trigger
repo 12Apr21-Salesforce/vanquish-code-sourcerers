@@ -26,6 +26,7 @@ trigger EscapePodTrigger on Escape_Room_Pod__c (before update, after update) {
 
                         pod.On_Event__c = false; // search for ware house and set on event flag to false
                         pod.Current_Location__c = EscapePodHelper.findHouseName(pod).Location__c;
+                       
                     }
 
                     
@@ -44,16 +45,24 @@ trigger EscapePodTrigger on Escape_Room_Pod__c (before update, after update) {
 
                         
 
-                        //Share.Escape_Room_Pod__c = EscapePodEventHelper.clonePod(pod).Id; 
+                        Escape_Room_Pod__c pod3 = EscapePodEventHelper.clonePod(pod); 
 
                         try {
                             //update share;
-                            insert EscapePodEventHelper.clonePod(pod);
+                            //insert EscapePodEventHelper.clonePod(pod);
+                            insert pod3;
+                            Share.Escape_Room_Pod__c = pod3.Id; 
+                            update Share;
+  
                          } catch (DmlException ex) {
                             
+                                system.debug(ex.getMessage());
+
                          }
                         
                 }
+
+                
 
                 //*/
 

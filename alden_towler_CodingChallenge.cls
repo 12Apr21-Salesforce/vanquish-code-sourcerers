@@ -333,8 +333,8 @@
     */
     public static Boolean questionMarks(String str) {
 
-      Integer Quest = 98;
-      Integer Firstnum;
+      Integer Quest;
+      Integer Firstnum = 98;
       Boolean Flag = false;
 
       for(String x : str.split('')){
